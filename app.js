@@ -107,7 +107,10 @@ app.put('/blogs/:id', function (req, res) {
         });
 });
 
+//Delete Route 
+app.delete('/blogs/:id', function (req, res) {
 
+});
 
 // Index redirect
 app.get('/', function (req, res) {
