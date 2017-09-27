@@ -52,6 +52,7 @@ app.get('/blogs/new', function (req, res) {
     res.render('new');
 });
 
+//Post route
 app.post('/blogs', function (req, res) {
     var data = {
         title: req.body
@@ -64,6 +65,20 @@ app.post('/blogs', function (req, res) {
         };
     });
 });
+
+//Show route
+app.get('/blogs/:id', function (req, res) {
+    Blog.findById(req.params.id, function (err, foundBlog) {
+        if (err) {
+            res.redirect('/blogs');
+        } else {
+            res.render('show', {
+                blog: foundBlog
+            });
+        }
+    });
+});
+
 
 // Index redirect
 app.get('/', function (req, res) {
